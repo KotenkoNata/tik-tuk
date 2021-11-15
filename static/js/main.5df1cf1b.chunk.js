@@ -1,0 +1,2 @@
+(this["webpackJsonptik-tuk"]=this["webpackJsonptik-tuk"]||[]).push([[0],{9:function(t,e,n){"use strict";n.r(e);var c=n(1),i=n.n(c),r=n(3),s=n.n(r),o=n(0),d=function(){return Object(o.jsx)("div",{children:Object(o.jsx)("h1",{children:"Hello, test text!"})})};s.a.render(Object(o.jsx)(i.a.StrictMode,{children:Object(o.jsx)(d,{})}),document.getElementById("root"))}},[[9,1,2]]]);
+//# sourceMappingURL=main.5df1cf1b.chunk.js.map
