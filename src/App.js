@@ -3,6 +3,7 @@ import NotFound from "./views/NotFound";
 import { Route, Switch } from "react-router-dom";
 import AppBar from "./components/AppBar";
 import { Container } from "react-bootstrap";
+import Loading from "./components/Loading";
 
 import routes from "./routes";
 
@@ -15,7 +16,7 @@ const App = () => {
     <>
       <Container>
         <AppBar />
-        <Suspense fallback={<h1>Loading...</h1>}>
+        <Suspense fallback={<Loading />}>
           <Switch>
             <Route exact path={routes.home} component={HomeView} />
             <Route path={routes.userProfile} component={UserView} />

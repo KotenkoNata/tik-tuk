@@ -1,6 +1,4 @@
 import React from "react";
-import routes from "../../routes";
-import { Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 import style from "./Navigation.module.css";

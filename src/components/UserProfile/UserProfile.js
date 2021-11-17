@@ -4,7 +4,6 @@ import ButtonUser from "../Button";
 import { nFormatter } from "../../nFormatter";
 
 const UserProfile = ({ name, userDetails }) => {
-  const { user } = userDetails;
   return (
     <>
       <div className={style["main-container"]}>
@@ -12,7 +11,7 @@ const UserProfile = ({ name, userDetails }) => {
           <div>
             <img
               className={style["avatar"]}
-              src={user.avatarMedium}
+              src={userDetails.user.avatarMedium}
               alt={userDetails.user.nickname}
             />
           </div>
