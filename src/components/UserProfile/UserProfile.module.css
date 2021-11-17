@@ -1,0 +1,54 @@
+.main-container {
+  margin-top: 30px;
+}
+
+.user-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  margin-right: 20px;
+}
+
+.name-container {
+  margin-left: 20px;
+}
+
+.user-name {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.user-nickname {
+  font-size: 18px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.list-follow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.list-follow > li {
+  margin-right: 10px;
+}
+
+.list-follow-number {
+  font-weight: bold;
+}
+
+.user-signature {
+  text-align: center;
+}

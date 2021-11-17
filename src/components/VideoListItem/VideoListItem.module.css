@@ -1,0 +1,88 @@
+.video-item {
+  position: relative;
+  width: 700px;
+  max-width: 700px;
+  margin: 0 auto;
+  border-bottom: 1px solid #efefef;
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.nickname {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.image-container {
+  position: absolute;
+  top: 32px;
+  left: 70px;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 50px;
+}
+
+.user-details {
+  width: 400px;
+  text-align: left;
+}
+
+.text-detail-container {
+  flex: 0 0 auto;
+  word-break: break-word;
+  font-size: 14px;
+}
+
+.video {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.additional-details {
+  position: absolute;
+  bottom: 0;
+  right: 90px;
+}
+
+.details-item {
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.icon-border {
+  background-color: #ecebeb;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  align-content: center;
+}
+
+.icon-link {
+  display: block;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  fill: #212121;
+}
+
+.icon-link:hover {
+  background-color: #9f9f9f;
+}
