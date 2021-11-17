@@ -18,14 +18,6 @@ const Navigation = () => {
         </nav>
       </header>
     </>
-    // <Nav variant={'tabs'} defaultActiveKey={'home'}>
-    //     <Nav.Item>
-    //         <Nav.Link eventKey={'home'} as={RouterLink} to={routes.home}>Home</Nav.Link>
-    //     </Nav.Item>
-    //     <Nav.Item>
-    //         <Nav.Link eventKey={'userProfile'} as={RouterLink} to={routes.userProfile}>User profile</Nav.Link>
-    //     </Nav.Item>
-    // </Nav>
   );
 };
 
