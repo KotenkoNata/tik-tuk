@@ -2,7 +2,7 @@
   "name": "tik-tuk",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://KotenkoNata-tik-tuk.github.io/",
+  "homepage": "https://KotenkoNata.github.io/tik-tuk",
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
@@ -26,7 +26,7 @@
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "predeploy": "npm run build",
-    "deploy0": "gh-pages -b gh-page -d build"
+    "deploy": "gh-pages -b gh-page -d build"
   },
   "eslintConfig": {
     "extends": [
