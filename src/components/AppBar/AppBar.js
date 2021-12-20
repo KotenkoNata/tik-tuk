@@ -3,11 +3,9 @@ import Navigation from "../Navigation";
 
 const AppBar = () => {
   return (
-    <>
-      <header>
-        <Navigation />
-      </header>
-    </>
+    <header>
+      <Navigation />
+    </header>
   );
 };
 

@@ -6,6 +6,12 @@ module.exports = {
   plugins: ["prettier"],
   rules: {
     "arrow-body-style": ["off"],
+    "no-restricted-exports": [
+      "off",
+      {
+        restrictedNamedExports: ["default"],
+      },
+    ],
     semi: ["error"],
     "react/function-component-definition": [
       "error",

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import Logger from "js-logger";
 import { fetchTrendingVideo, getUserDetails } from "../../services/videoAPI";
 
 import UserProfile from "../../components/UserProfile";
@@ -22,7 +23,7 @@ const UserView = () => {
         setLoadingVideo(false);
       })
       .catch(error => {
-        console.log(error.message);
+        Logger.log(error.message);
         setLoadingVideo(false);
       });
   }, []);
@@ -34,7 +35,7 @@ const UserView = () => {
         setLoadingUser(false);
       })
       .catch(error => {
-        console.log(error.message);
+        Logger.log(error.message);
         setLoadingUser(false);
       });
   }, [name]);

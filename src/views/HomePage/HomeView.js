@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Logger from "js-logger";
 import VideoList from "../../components/VideoList";
 import VideoListItem from "../../components/VideoListItem";
 import { fetchTrendingVideo } from "../../services/videoAPI";
@@ -10,32 +11,28 @@ const HomeView = () => {
 
   useEffect(() => {
     fetchTrendingVideo()
-      .then((response) => {
+      .then(response => {
         setTrendingVideo(response.data);
         setLoadingVideo(false);
       })
-      .catch((error) => {
-        console.log(error.message);
+      .catch(error => {
+        Logger.log(error.message);
         setLoadingVideo(false);
       });
   }, []);
 
   return (
-    <>
+    <div>
       {isLoadingVideo ? (
         <Loading />
       ) : (
         <VideoList>
-          {trendingVideo.map((video) => (
-            <VideoListItem
-              key={video.id}
-              video={video}
-              name={video.authorMeta.name}
-            />
+          {trendingVideo.map(video => (
+            <VideoListItem key={video.id} video={video} name={video.authorMeta.name} />
           ))}
         </VideoList>
       )}
-    </>
+    </div>
   );
 };
 
