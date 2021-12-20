@@ -20,10 +20,11 @@ module.exports = {
         unnamedComponents: "arrow-function",
       },
     ],
+    "jsx-a11y/media-has-caption": ["warn"],
     "react/jsx-filename-extension": [
       "warn",
       {
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        extensions: [".js", ".jsx"],
       },
     ],
     "prettier/prettier": ["error"],
