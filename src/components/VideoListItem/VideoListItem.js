@@ -59,9 +59,9 @@ const VideoListItem = ({ video, name }) => {
               <span>{nFormatter(commentCount)}</span>
             </div>
           </li>
-          <li className={style["details-item"]}>
-            <div className={style["icon-border"]}>
-              <a href="#top" className={style["icon-link"]}>
+          <li className={style.detailsItem}>
+            <div className={style.iconBorder}>
+              <a href="#top" className={style.iconLink}>
                 <FaHeart className={style.icon} />
               </a>
               <span>{nFormatter(diggCount)}</span>

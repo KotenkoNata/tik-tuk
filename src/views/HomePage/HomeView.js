@@ -12,8 +12,9 @@ const HomeView = () => {
   useEffect(() => {
     fetchTrendingVideo()
       .then(response => {
-        setTrendingVideo(response.data);
         setLoadingVideo(false);
+        setTrendingVideo(response.data);
+        return response.data;
       })
       .catch(error => {
         Logger.log(error.message);

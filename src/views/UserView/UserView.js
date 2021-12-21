@@ -21,6 +21,7 @@ const UserView = () => {
       .then(response => {
         setTrendingVideo(response.data);
         setLoadingVideo(false);
+        return response.data;
       })
       .catch(error => {
         Logger.log(error.message);
@@ -33,6 +34,7 @@ const UserView = () => {
       .then(response => {
         setUserDetails(response.data);
         setLoadingUser(false);
+        return response.data;
       })
       .catch(error => {
         Logger.log(error.message);
