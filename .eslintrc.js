@@ -2,13 +2,16 @@ module.exports = {
   env: {
     es6: true,
   },
-  extends: ["react-app", "airbnb", "prettier"],
-  plugins: ["prettier", "import", "unicorn", "promise", "more"],
+  extends: ["react-app", "airbnb", "prettier", "plugin:react/all"],
+  plugins: ["prettier", "import", "unicorn", "promise", "more", "react"],
   settings: {
     "import/extensions": [".js", ".jsx"],
     "import/ignore": ["node_modules"],
   },
   rules: {
+    "react/jsx-newline": [1, { prevent: true }],
+    "react/jsx-max-depth": [2, { max: 9 }],
+    "react/jsx-no-literals": [1],
     "import/no-unresolved": [2, { commonjs: true, amd: true }],
     "import/named": 2,
     "import/namespace": 2,
@@ -164,5 +167,7 @@ module.exports = {
     "more/classbody-starts-with-newline": [2, "never"],
     "more/no-hardcoded-password": 2,
     "more/no-hardcoded-configuration-data": 2,
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
   },
 };

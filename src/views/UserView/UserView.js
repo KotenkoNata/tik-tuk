@@ -11,20 +11,32 @@ import Loading from "../../components/Loading";
 
 const UserView = () => {
   const { name } = useParams();
-  const [isLoadingUser, setLoadingUser] = useState(true);
-  const [isLoadingVideo, setLoadingVideo] = useState(true);
-  const [userDetails, setUserDetails] = useState({});
-  const [trendingVideo, setTrendingVideo] = useState([]);
+  const [userDetails, setUserDetails] = useState({
+    data: {},
+    error: "",
+    loading: true,
+  });
+  const [trendingVideos, setTrendingVideos] = useState({
+    data: [],
+    error: "",
+    loading: true,
+  });
 
   useEffect(() => {
     async function innerFunction() {
       try {
-        const { data } = await fetchTrendingVideo();
-        setTrendingVideo(data);
+        const response = await fetchTrendingVideo();
+        setTrendingVideos(() => ({
+          data: response.data,
+          error: "",
+          loading: false,
+        }));
       } catch (error) {
-        Logger.error(error.message);
-      } finally {
-        setLoadingVideo(false);
+        setTrendingVideos(() => ({
+          data: [],
+          error: error.message,
+          loading: false,
+        }));
       }
     }
 
@@ -34,27 +46,40 @@ const UserView = () => {
   useEffect(() => {
     async function innerFunction() {
       try {
-        const { data } = await getUserDetails(name);
-        setUserDetails(data);
+        const response = await getUserDetails(name);
+        setUserDetails(() => ({
+          data: response.data,
+          error: "",
+          loading: false,
+        }));
       } catch (error) {
-        Logger.error(error.message);
-      } finally {
-        setLoadingUser(false);
+        setUserDetails(() => ({
+          data: {},
+          error: error.message,
+          loading: false,
+        }));
       }
     }
 
     Logger.trace(innerFunction());
   }, [name]);
 
+  if (userDetails.loading && trendingVideos.loading) {
+    return <Loading />;
+  }
+
   return (
     <>
-      {isLoadingUser ? <Loading /> : <UserProfile key={userDetails.id} name={name} userDetails={userDetails} />}
-
-      {isLoadingVideo ? (
+      {userDetails.loading ? (
+        <Loading />
+      ) : (
+        <UserProfile key={userDetails.data.id} name={name} userDetails={userDetails.data} />
+      )}
+      {trendingVideos.loading ? (
         <Loading />
       ) : (
         <UserVideoList>
-          {trendingVideo.map(video => (
+          {trendingVideos.data.map(video => (
             <UserVideoItem key={video.id} video={video} />
           ))}
         </UserVideoList>

@@ -18,7 +18,7 @@ const VideoListItem = ({ video, name }) => {
 
   const hashtagsElements = hashtags.length > 0 && (
     <p>
-      <strong>Hashtags:</strong>{" "}
+      <strong>{"Hashtags: "}</strong>
       {hashtags.map(hashtag => (
         <VideoHashTag key={Math.random()} name={hashtag.name} />
       ))}
@@ -31,7 +31,7 @@ const VideoListItem = ({ video, name }) => {
         <div className={style.avatarContainer}>
           <div className={style.imageContainer}>
             <Link className={style.link} to={{ pathname: `/user/${name}` }}>
-              <img className={style.avatar} src={avatar} alt={nickName} />
+              <img alt={nickName} className={style.avatar} src={avatar} />
             </Link>
           </div>
           <div className={style.textDetailContainer}>
@@ -40,16 +40,14 @@ const VideoListItem = ({ video, name }) => {
             </Link>
             <div className={style.userDetails}>
               {videoText.length > 0 && <p>{videoText}</p>}
-
               {hashtagsElements}
             </div>
-            <video className={style.video} width="400" controls>
+            <video className={style.video} controls width="400">
               <source src={videoUrl} />
-              <track src="" kind="captions" srcLang="en" label="English" />
+              <track kind="captions" label="English" src="" srcLang="en" />
             </video>
           </div>
         </div>
-
         <ul className={style.additionalDetails}>
           <li className={style.detailsItem}>
             <div className={style.iconBorder}>
@@ -61,7 +59,7 @@ const VideoListItem = ({ video, name }) => {
           </li>
           <li className={style.detailsItem}>
             <div className={style.iconBorder}>
-              <a href="#top" className={style.iconLink}>
+              <a className={style.iconLink} href="#top">
                 <FaHeart className={style.icon} />
               </a>
               <span>{nFormatter(diggCount)}</span>
@@ -79,12 +77,12 @@ const AuthorMetaType = PropTypes.shape({
 });
 
 const VideoType = PropTypes.shape({
-  text: PropTypes.string,
-  hashtags: PropTypes.arrayOf(HashTagType),
   authorMeta: AuthorMetaType,
-  videoUrl: PropTypes.string.isRequired,
   commentCount: PropTypes.number,
   diggCount: PropTypes.number,
+  hashtags: PropTypes.arrayOf(HashTagType),
+  text: PropTypes.string,
+  videoUrl: PropTypes.string.isRequired,
 });
 
 VideoListItem.propTypes = {

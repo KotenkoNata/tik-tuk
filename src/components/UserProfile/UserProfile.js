@@ -14,7 +14,7 @@ const UserProfile = ({ name, userDetails }) => {
     <div className={style["main-container"]}>
       <div className={style["user-container"]}>
         <div>
-          <img className={style.avatar} src={avatarMedium} alt={nickname} />
+          <img alt={nickname} className={style.avatar} src={avatarMedium} />
         </div>
         <div className={style["name-container"]}>
           <h1 className={style["user-name"]}>{name}</h1>
@@ -22,25 +22,26 @@ const UserProfile = ({ name, userDetails }) => {
           <ButtonUser>Follow</ButtonUser>
         </div>
       </div>
-
       <ul className={style["list-follow"]}>
         <li>
           <p>
-            <span className={style["list-follow-number"]}>{nFormatter(followingCount)}</span> Following
+            <span className={style["list-follow-number"]}>{nFormatter(followingCount)}</span>
+            {" Following"}
           </p>
         </li>
         <li>
           <p>
-            <span className={style["list-follow-number"]}>{nFormatter(followerCount)}</span> Followers
+            <span className={style["list-follow-number"]}>{nFormatter(followerCount)}</span>
+            {" Followers"}
           </p>
         </li>
         <li>
           <p>
-            <span className={style["list-follow-number"]}>{nFormatter(heartCount)}</span> Likes
+            <span className={style["list-follow-number"]}>{nFormatter(heartCount)}</span>
+            {" Likes"}
           </p>
         </li>
       </ul>
-
       <p className={style["user-signature"]}>{signature}</p>
     </div>
   );
@@ -53,14 +54,14 @@ const User = PropTypes.shape({
 });
 
 const Stats = PropTypes.shape({
-  followingCount: PropTypes.number.isRequired,
   followerCount: PropTypes.number.isRequired,
+  followingCount: PropTypes.number.isRequired,
   heartCount: PropTypes.number.isRequired,
 });
 
 const UserDetails = PropTypes.shape({
-  user: User.isRequired,
   stats: Stats.isRequired,
+  user: User.isRequired,
 });
 
 UserProfile.propTypes = {

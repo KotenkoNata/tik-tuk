@@ -6,35 +6,56 @@ import { fetchTrendingVideo } from "../../services/videoApi";
 import Loading from "../../components/Loading";
 
 const HomeView = () => {
-  const [trendingVideo, setTrendingVideo] = useState([]);
-  const [isLoadingVideo, setLoadingVideo] = useState(true);
+  const [data, setData] = useState({
+    error: "",
+    videos: [],
+    loading: true,
+  });
 
   useEffect(() => {
     async function innerFunction() {
       try {
-        const { data } = await fetchTrendingVideo();
-        setTrendingVideo(data);
+        const response = await fetchTrendingVideo();
+        if (!response.data || response.data.length === 0) {
+          setData(() => ({
+            error: "response data is empty",
+            videos: [],
+            loading: false,
+          }));
+          return;
+        }
+        setData(() => ({
+          error: "",
+          videos: response.data,
+          loading: false,
+        }));
       } catch (error) {
-        Logger.error(error.message);
-      } finally {
-        setLoadingVideo(false);
+        setData(() => ({
+          error: error.message,
+          videos: [],
+          loading: false,
+        }));
       }
     }
 
     Logger.trace(innerFunction());
   }, []);
 
+  if (data.loading) {
+    return <Loading />;
+  }
+
+  if (data.error) {
+    return <h1>{`ERROR: ${data.error}`}</h1>;
+  }
+
   return (
     <div>
-      {isLoadingVideo ? (
-        <Loading />
-      ) : (
-        <VideoList>
-          {trendingVideo.map(video => (
-            <VideoListItem key={video.id} video={video} name={video.authorMeta.name} />
-          ))}
-        </VideoList>
-      )}
+      <VideoList>
+        {data.videos.map(video => (
+          <VideoListItem key={video.id} name={video.authorMeta.name} video={video} />
+        ))}
+      </VideoList>
     </div>
   );
 };

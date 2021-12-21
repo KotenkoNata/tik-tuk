@@ -18,8 +18,8 @@ const App = () => {
       <AppBar />
       <Suspense fallback={<Loading />}>
         <Switch>
-          <Route exact path={routes.home} component={HomeView} />
-          <Route path={routes.userProfile} component={UserView} />
+          <Route component={HomeView} exact path={routes.home} />
+          <Route component={UserView} path={routes.userProfile} />
           <Route component={NotFound} />
         </Switch>
       </Suspense>

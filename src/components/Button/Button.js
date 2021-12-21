@@ -4,7 +4,7 @@ import style from "./Button.module.css";
 
 const ButtonUser = ({ children }) => {
   return (
-    <button type="button" className={style.button}>
+    <button className={style.button} type="button">
       {children}
     </button>
   );

@@ -1,4 +1,6 @@
 import axios from "axios";
+import { setupCache } from "axios-cache-adapter";
+import localforage from "localforage";
 
 const {
   REACT_APP_TIK_TUK_API_KEY: headerApiKey,
@@ -7,6 +9,14 @@ const {
 } = process.env;
 
 const videoApi = axios.create({
+  adapter: setupCache({
+    maxAge: 24 * 60 * 60 * 1000,
+    clearOnError: true,
+    store: localforage.createInstance({
+      driver: [localforage.INDEXEDDB, localforage.LOCALSTORAGE],
+      name: "video-api-store",
+    }),
+  }).adapter,
   baseURL: baseUrl,
   timeout: 30_000,
   headers: {
