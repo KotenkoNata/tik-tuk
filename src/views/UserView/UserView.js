@@ -17,29 +17,33 @@ const UserView = () => {
   const [trendingVideo, setTrendingVideo] = useState([]);
 
   useEffect(() => {
-    fetchTrendingVideo()
-      .then(response => {
-        setTrendingVideo(response.data);
+    async function innerFunction() {
+      try {
+        const { data } = await fetchTrendingVideo();
+        setTrendingVideo(data);
+      } catch (error) {
+        Logger.error(error.message);
+      } finally {
         setLoadingVideo(false);
-        return response.data;
-      })
-      .catch(error => {
-        Logger.log(error.message);
-        setLoadingVideo(false);
-      });
+      }
+    }
+
+    Logger.trace(innerFunction());
   }, []);
 
   useEffect(() => {
-    getUserDetails(name)
-      .then(response => {
-        setUserDetails(response.data);
+    async function innerFunction() {
+      try {
+        const { data } = await getUserDetails(name);
+        setUserDetails(data);
+      } catch (error) {
+        Logger.error(error.message);
+      } finally {
         setLoadingUser(false);
-        return response.data;
-      })
-      .catch(error => {
-        Logger.log(error.message);
-        setLoadingUser(false);
-      });
+      }
+    }
+
+    Logger.trace(innerFunction());
   }, [name]);
 
   return (

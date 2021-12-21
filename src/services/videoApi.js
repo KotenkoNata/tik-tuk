@@ -1,13 +1,14 @@
 import axios from "axios";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-const BASE_URL = "https://tiktok33.p.rapidapi.com";
+const { BASE_URL } = process.env;
+const { URL_HEADER } = process.env;
 
 const options = {
   method: "GET",
   url: `${BASE_URL}`,
   headers: {
-    "x-rapidapi-host": "tiktok33.p.rapidapi.com",
+    "x-rapidapi-host": `${URL_HEADER}`,
     "x-rapidapi-key": `${API_KEY}`,
   },
 };

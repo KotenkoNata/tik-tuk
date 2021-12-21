@@ -10,16 +10,18 @@ const HomeView = () => {
   const [isLoadingVideo, setLoadingVideo] = useState(true);
 
   useEffect(() => {
-    fetchTrendingVideo()
-      .then(response => {
+    async function innerFunction() {
+      try {
+        const { data } = await fetchTrendingVideo();
+        setTrendingVideo(data);
+      } catch (error) {
+        Logger.error(error.message);
+      } finally {
         setLoadingVideo(false);
-        setTrendingVideo(response.data);
-        return response.data;
-      })
-      .catch(error => {
-        Logger.log(error.message);
-        setLoadingVideo(false);
-      });
+      }
+    }
+
+    Logger.trace(innerFunction());
   }, []);
 
   return (
