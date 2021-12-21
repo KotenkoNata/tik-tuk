@@ -8,3 +8,4 @@ build/
 build/*
 build/**
 .eslint**
+commitlint.config.js

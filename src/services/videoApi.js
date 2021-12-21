@@ -1,30 +1,24 @@
 import axios from "axios";
 
-const API_KEY = process.env.REACT_APP_API_KEY;
-const { BASE_URL } = process.env;
-const { URL_HEADER } = process.env;
+const {
+  REACT_APP_TIK_TUK_API_KEY: headerApiKey,
+  REACT_APP_TIK_TUK_API_BASE_URL: baseUrl,
+  REACT_APP_TIK_TUK_API_URL_HEADER: hostHeader,
+} = process.env;
 
-const options = {
-  method: "GET",
-  url: `${BASE_URL}`,
+const videoApi = axios.create({
+  baseURL: baseUrl,
+  timeout: 30_000,
   headers: {
-    "x-rapidapi-host": `${URL_HEADER}`,
-    "x-rapidapi-key": `${API_KEY}`,
+    "x-rapidapi-host": `${hostHeader}`,
+    "x-rapidapi-key": `${headerApiKey}`,
   },
-};
+});
 
 export function fetchTrendingVideo() {
-  const newOptions = {
-    ...options,
-    url: `${BASE_URL}/trending/feed`,
-  };
-  return axios.get(newOptions.url, newOptions);
+  return videoApi.get("/trending/feed");
 }
 
 export function getUserDetails(name) {
-  const newOptions = {
-    ...options,
-    url: `${BASE_URL}/user/info/${name}`,
-  };
-  return axios.get(newOptions.url, newOptions);
+  return videoApi.get(`/user/info/${name}`);
 }
