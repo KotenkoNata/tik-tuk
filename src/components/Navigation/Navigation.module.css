@@ -2,7 +2,7 @@
   border-bottom: 1px solid #efefef;
 }
 
-.link-logo {
+.link {
   text-decoration: none;
   display: flex;
   justify-content: flex-start;
@@ -13,7 +13,4 @@
 .logo {
   width: 45px;
   margin-right: 5px;
-}
-
-.name {
 }

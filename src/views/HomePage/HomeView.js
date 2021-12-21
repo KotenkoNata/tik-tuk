@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Logger from "js-logger";
 import VideoList from "../../components/VideoList";
 import VideoListItem from "../../components/VideoListItem";
-import { fetchTrendingVideo } from "../../services/videoAPI";
+import { fetchTrendingVideo } from "../../services/videoApi";
 import Loading from "../../components/Loading";
 
 const HomeView = () => {

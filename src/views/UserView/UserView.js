@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Logger from "js-logger";
-import { fetchTrendingVideo, getUserDetails } from "../../services/videoAPI";
+import { fetchTrendingVideo, getUserDetails } from "../../services/videoApi";
 
 import UserProfile from "../../components/UserProfile";
 import UserVideoList from "../../components/UserVideoList";

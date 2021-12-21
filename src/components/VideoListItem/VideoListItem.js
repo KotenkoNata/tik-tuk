@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FaComment, FaHeart } from "react-icons/fa";
 import nFormatter from "../../nFormatter";
 import style from "./VideoListItem.module.css";
-import VideoHashTag, { HashTagType } from "./VideoHashTag";
+import VideoHashTag, { HashTagType } from "../VideoHashTag/VideoHashTag";
 
 const VideoListItem = ({ video, name }) => {
   const {
@@ -16,8 +16,8 @@ const VideoListItem = ({ video, name }) => {
     diggCount,
   } = video;
 
-  const hashtagsEl = hashtags.length > 0 && (
-    <p className={style.text}>
+  const hashtagsElements = hashtags.length > 0 && (
+    <p>
       <strong>Hashtags:</strong>{" "}
       {hashtags.map(hashtag => (
         <VideoHashTag key={Math.random()} name={hashtag.name} />
@@ -27,33 +27,33 @@ const VideoListItem = ({ video, name }) => {
 
   return (
     <li>
-      <div className={style["video-item"]}>
-        <div className={style["avatar-container"]}>
-          <div className={style["image-container"]}>
+      <div className={style.item}>
+        <div className={style.avatarContainer}>
+          <div className={style.imageContainer}>
             <Link className={style.link} to={{ pathname: `/user/${name}` }}>
               <img className={style.avatar} src={avatar} alt={nickName} />
             </Link>
           </div>
-          <div className={style["text-detail-container"]}>
+          <div className={style.textDetailContainer}>
             <Link className={style.link} to={{ pathname: `/user/${name}` }}>
               <h1 className={style.nickname}>{nickName}</h1>
             </Link>
-            <div className={style["user-details"]}>
-              {videoText.length > 0 && <p className={style.text}>{videoText}</p>}
+            <div className={style.userDetails}>
+              {videoText.length > 0 && <p>{videoText}</p>}
 
-              {hashtagsEl}
+              {hashtagsElements}
             </div>
             <video className={style.video} width="400" controls>
               <source src={videoUrl} />
-              <track src="" kind="subtitles" srcLang="en" label="English" />
+              <track src="" kind="captions" srcLang="en" label="English" />
             </video>
           </div>
         </div>
 
-        <ul className={style["additional-details"]}>
-          <li className={style["details-item"]}>
-            <div className={style["icon-border"]}>
-              <a className={style["icon-link"]} href="#top">
+        <ul className={style.additionalDetails}>
+          <li className={style.detailsItem}>
+            <div className={style.iconBorder}>
+              <a className={style.iconLink} href="#top">
                 <FaComment className={style.icon} />
               </a>
               <span>{nFormatter(commentCount)}</span>

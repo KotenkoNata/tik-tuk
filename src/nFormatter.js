@@ -1,14 +1,14 @@
-function nFormatter(num) {
-  if (num >= 1000000000) {
-    return `${(num / 1000000000).toFixed(1).replace(/\.0$/, "")}G`;
+function nFormatter(number_) {
+  if (number_ >= 1_000_000_000) {
+    return `${(number_ / 1_000_000_000).toFixed(1).replace(/\.0$/, "")}G`;
   }
-  if (num >= 1000000) {
-    return `${(num / 1000000).toFixed(1).replace(/\.0$/, "")}M`;
+  if (number_ >= 1_000_000) {
+    return `${(number_ / 1_000_000).toFixed(1).replace(/\.0$/, "")}M`;
   }
-  if (num >= 1000) {
-    return `${(num / 1000).toFixed(1).replace(/\.0$/, "")}K`;
+  if (number_ >= 1000) {
+    return `${(number_ / 1000).toFixed(1).replace(/\.0$/, "")}K`;
   }
-  return num;
+  return number_;
 }
 
 export default nFormatter;
