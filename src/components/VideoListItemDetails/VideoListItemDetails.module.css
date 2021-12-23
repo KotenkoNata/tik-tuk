@@ -1,0 +1,34 @@
+.additionalDetails {
+  position: absolute;
+  bottom: 0;
+  right: 90px;
+}
+
+.detailsItem {
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.iconBorder {
+  background-color: #ecebeb;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  align-content: center;
+}
+
+.iconLink {
+  display: block;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  fill: #212121;
+}
+
+.iconLink:hover {
+  background-color: #9f9f9f;
+}

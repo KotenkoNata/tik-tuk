@@ -1,0 +1,44 @@
+.avatarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.imageContainer {
+  position: absolute;
+  top: 0;
+  left: 70px;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 50px;
+}
+
+.textDetailContainer {
+  flex: 0 0 auto;
+  word-break: break-word;
+  font-size: 14px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.nickname {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.userDetails {
+  width: 400px;
+  text-align: left;
+}
+
+.video {
+  margin-bottom: 15px;
+}

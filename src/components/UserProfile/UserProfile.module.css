@@ -1,8 +1,8 @@
-.main-container {
+.mainContainer {
   margin-top: 30px;
 }
 
-.user-container {
+.userContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,24 +15,24 @@
   margin-right: 20px;
 }
 
-.name-container {
+.nameContainer {
   margin-left: 20px;
 }
 
-.user-name {
+.userName {
   font-size: 20px;
   font-weight: bold;
   text-align: left;
   margin-bottom: 10px;
 }
 
-.user-nickname {
+.userNickname {
   font-size: 18px;
   text-align: left;
   margin-bottom: 20px;
 }
 
-.list-follow {
+.listFollow {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,14 +41,14 @@
   margin-bottom: 0;
 }
 
-.list-follow > li {
+.listFollow > li {
   margin-right: 10px;
 }
 
-.list-follow-number {
+.listFollowNumber {
   font-weight: bold;
 }
 
-.user-signature {
+.userSignature {
   text-align: center;
 }

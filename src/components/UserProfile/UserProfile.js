@@ -5,44 +5,52 @@ import ButtonUser from "../Button";
 import nFormatter from "../../nFormatter";
 
 const UserProfile = ({ name, userDetails }) => {
+  if (Object.keys(userDetails).length === 0) {
+    return (
+      <div>
+        <h1>User Details are empty!</h1>
+      </div>
+    );
+  }
+
   const {
     user: { avatarMedium, nickname, signature },
     stats: { followerCount, followingCount, heartCount },
   } = userDetails;
 
   return (
-    <div className={style["main-container"]}>
-      <div className={style["user-container"]}>
+    <div className={style.mainContainer}>
+      <div className={style.userContainer}>
         <div>
           <img alt={nickname} className={style.avatar} src={avatarMedium} />
         </div>
-        <div className={style["name-container"]}>
-          <h1 className={style["user-name"]}>{name}</h1>
-          <h2 className={style["user-nickname"]}>{nickname}</h2>
+        <div className={style.nameContainer}>
+          <h1 className={style.userName}>{name}</h1>
+          <h2 className={style.userNickname}>{nickname}</h2>
           <ButtonUser>Follow</ButtonUser>
         </div>
       </div>
-      <ul className={style["list-follow"]}>
+      <ul className={style.listFollow}>
         <li>
           <p>
-            <span className={style["list-follow-number"]}>{nFormatter(followingCount)}</span>
+            <span className={style.listFollowNumber}>{nFormatter(followingCount)}</span>
             {" Following"}
           </p>
         </li>
         <li>
           <p>
-            <span className={style["list-follow-number"]}>{nFormatter(followerCount)}</span>
+            <span className={style.listFollowNumber}>{nFormatter(followerCount)}</span>
             {" Followers"}
           </p>
         </li>
         <li>
           <p>
-            <span className={style["list-follow-number"]}>{nFormatter(heartCount)}</span>
+            <span className={style.listFollowNumber}>{nFormatter(heartCount)}</span>
             {" Likes"}
           </p>
         </li>
       </ul>
-      <p className={style["user-signature"]}>{signature}</p>
+      <p className={style.userSignature}>{signature}</p>
     </div>
   );
 };
