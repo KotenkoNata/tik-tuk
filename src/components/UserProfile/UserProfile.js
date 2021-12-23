@@ -8,7 +8,7 @@ const UserProfile = ({ name, userDetails }) => {
   if (Object.keys(userDetails).length === 0) {
     return (
       <div>
-        <h1>User Details are empty!</h1>
+        <h1>User Details are empty because API returns status 200 and empty object!</h1>
       </div>
     );
   }
