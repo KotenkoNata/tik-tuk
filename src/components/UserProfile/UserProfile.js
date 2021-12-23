@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import style from "./UserProfile.module.css";
 import ButtonUser from "../Button";
-import nFormatter from "../../nFormatter";
+import UserProfileStatistics from "./UserProfileStatistics";
 
 const UserProfile = ({ name, userDetails }) => {
   if (Object.keys(userDetails).length === 0) {
@@ -30,26 +30,7 @@ const UserProfile = ({ name, userDetails }) => {
           <ButtonUser>Follow</ButtonUser>
         </div>
       </div>
-      <ul className={style.listFollow}>
-        <li>
-          <p>
-            <span className={style.listFollowNumber}>{nFormatter(followingCount)}</span>
-            {" Following"}
-          </p>
-        </li>
-        <li>
-          <p>
-            <span className={style.listFollowNumber}>{nFormatter(followerCount)}</span>
-            {" Followers"}
-          </p>
-        </li>
-        <li>
-          <p>
-            <span className={style.listFollowNumber}>{nFormatter(heartCount)}</span>
-            {" Likes"}
-          </p>
-        </li>
-      </ul>
+      <UserProfileStatistics followerCount={followerCount} followingCount={followingCount} heartCount={heartCount} />
       <p className={style.userSignature}>{signature}</p>
     </div>
   );

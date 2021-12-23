@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { FaComment, FaHeart } from "react-icons/fa";
-import nFormatter from "../../nFormatter";
+import formatNumber from "../../formatNumber";
 import style from "./VideoListItemDetails.module.css";
 
 const VideoListItemDetails = ({ video }) => {
@@ -14,7 +14,7 @@ const VideoListItemDetails = ({ video }) => {
           <a className={style.iconLink} href="#top">
             <FaComment className={style.icon} />
           </a>
-          <span>{nFormatter(commentCount)}</span>
+          <span>{formatNumber(commentCount)}</span>
         </div>
       </li>
       <li className={style.detailsItem}>
@@ -22,7 +22,7 @@ const VideoListItemDetails = ({ video }) => {
           <a className={style.iconLink} href="#top">
             <FaHeart className={style.icon} />
           </a>
-          <span>{nFormatter(diggCount)}</span>
+          <span>{formatNumber(diggCount)}</span>
         </div>
       </li>
     </ul>
