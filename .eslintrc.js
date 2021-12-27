@@ -11,7 +11,7 @@ module.exports = {
   rules: {
     "react/jsx-newline": [1, { prevent: true }],
     "react/jsx-max-depth": [2, { max: 9 }],
-    "react/jsx-no-literals": [1],
+    "react/jsx-no-literals": "off",
     "import/no-unresolved": [2, { commonjs: true, amd: true }],
     "import/named": 2,
     "import/namespace": 2,

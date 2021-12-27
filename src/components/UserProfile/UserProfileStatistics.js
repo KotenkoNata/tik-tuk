@@ -4,16 +4,11 @@ import style from "./UserProfile.module.css";
 import UserProfileStatisticItem from "./UserProfileStatisticItem";
 
 const UserProfileStatistics = ({ followingCount, followerCount, heartCount }) => {
-  const names = {
-    following: "Following",
-    followers: "Followers",
-    likes: "Likes",
-  };
   return (
     <ul className={style.listFollow}>
-      <UserProfileStatisticItem count={followingCount} name={names.following} />
-      <UserProfileStatisticItem count={followerCount} name={names.followers} />
-      <UserProfileStatisticItem count={heartCount} name={names.likes} />
+      <UserProfileStatisticItem count={followingCount} name="Following" />
+      <UserProfileStatisticItem count={followerCount} name="Followers" />
+      <UserProfileStatisticItem count={heartCount} name="Likes" />
     </ul>
   );
 };
