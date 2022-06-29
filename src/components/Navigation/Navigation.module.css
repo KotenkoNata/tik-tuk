@@ -4,13 +4,8 @@
 
 .link {
   text-decoration: none;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-left: 15px;
 }
 
-.logo {
-  width: 45px;
-  margin-right: 5px;
+.link:hover {
+  cursor: pointer;
 }

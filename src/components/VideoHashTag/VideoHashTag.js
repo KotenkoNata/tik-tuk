@@ -11,10 +11,7 @@ const VideoHashTag = ({ name }) => {
 };
 
 export const HashTagType = PropTypes.shape({
-  cover: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  title: PropTypes.string,
+  name: PropTypes.string,
 });
 
 VideoHashTag.propTypes = HashTagType.isRequired;

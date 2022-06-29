@@ -1,11 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { FaComment, FaHeart } from "react-icons/fa";
 import formatNumber from "../../formatNumber";
 import style from "./VideoListItemDetails.module.css";
 
 const VideoListItemDetails = ({ video }) => {
-  const { commentCount, diggCount } = video;
+  const { comment_count, digg_count } = video.statistics;
 
   return (
     <ul className={style.additionalDetails}>
@@ -14,7 +13,7 @@ const VideoListItemDetails = ({ video }) => {
           <a className={style.iconLink} href="#top">
             <FaComment className={style.icon} />
           </a>
-          <span>{formatNumber(commentCount)}</span>
+          <span>{formatNumber(comment_count)}</span>
         </div>
       </li>
       <li className={style.detailsItem}>
@@ -22,20 +21,11 @@ const VideoListItemDetails = ({ video }) => {
           <a className={style.iconLink} href="#top">
             <FaHeart className={style.icon} />
           </a>
-          <span>{formatNumber(diggCount)}</span>
+          <span>{formatNumber(digg_count)}</span>
         </div>
       </li>
     </ul>
   );
-};
-
-const VideoType = PropTypes.shape({
-  commentCount: PropTypes.number,
-  diggCount: PropTypes.number,
-});
-
-VideoListItemDetails.propTypes = {
-  video: VideoType.isRequired,
 };
 
 export default VideoListItemDetails;

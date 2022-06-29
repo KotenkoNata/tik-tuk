@@ -1,17 +1,30 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as ReactRouter } from "react-router-dom";
-import App from "./App";
+
+import { RouterProvider } from "react-router-dom";
+import ReactDOM from "react-dom/client";
+import routing from "./routing";
 
 import "./index.css";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
   <React.StrictMode>
-    <ReactRouter basename={process.env.PUBLIC_URL}>
-      <App />
-    </ReactRouter>
+    <RouterProvider router={routing} />
   </React.StrictMode>,
-  document.querySelector("#root"),
 );
+
+// ReactDOM.render(
+//   // <React.StrictMode>
+//     {/*<ReactRouter basename={process.env.PUBLIC_URL}>*/}
+//       <RouterProvider router={routing} />
+//     {/*</ReactRouter>*/}
+//   // </React.StrictMode>,
+//   document.querySelector("#root"),
+// );
+
+// // <React.StrictMode>
+// {/*<ReactRouter basename={process.env.PUBLIC_URL}>*/}
+// {/*</ReactRouter>*/}
+// // </React.StrictMode>,

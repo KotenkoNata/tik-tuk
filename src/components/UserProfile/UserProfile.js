@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import style from "./UserProfile.module.css";
 import ButtonUser from "../Button";
 import UserProfileStatistics from "./UserProfileStatistics";
@@ -13,16 +13,13 @@ const UserProfile = ({ name, userDetails }) => {
     );
   }
 
-  const {
-    user: { avatarMedium, nickname, signature },
-    stats: { followerCount, followingCount, heartCount },
-  } = userDetails;
+  const { avatar_medium, nickname, signature, follower_count, total_favorited, aweme_count } = userDetails;
 
   return (
     <div className={style.mainContainer}>
       <div className={style.userContainer}>
         <div>
-          <img alt={nickname} className={style.avatar} src={avatarMedium} />
+          <img alt={nickname} className={style.avatar} src={avatar_medium.url_list[0]} />
         </div>
         <div className={style.nameContainer}>
           <h1 className={style.userName}>{name}</h1>
@@ -30,32 +27,10 @@ const UserProfile = ({ name, userDetails }) => {
           <ButtonUser>Follow</ButtonUser>
         </div>
       </div>
-      <UserProfileStatistics followerCount={followerCount} followingCount={followingCount} heartCount={heartCount} />
+      <UserProfileStatistics followerCount={follower_count} followingCount={total_favorited} heartCount={aweme_count} />
       <p className={style.userSignature}>{signature}</p>
     </div>
   );
-};
-
-const User = PropTypes.shape({
-  avatarMedium: PropTypes.string.isRequired,
-  nickname: PropTypes.string.isRequired,
-  signature: PropTypes.string.isRequired,
-});
-
-const Stats = PropTypes.shape({
-  followerCount: PropTypes.number.isRequired,
-  followingCount: PropTypes.number.isRequired,
-  heartCount: PropTypes.number.isRequired,
-});
-
-const UserDetails = PropTypes.shape({
-  stats: Stats.isRequired,
-  user: User.isRequired,
-});
-
-UserProfile.propTypes = {
-  name: PropTypes.string.isRequired,
-  userDetails: UserDetails.isRequired,
 };
 
 export default UserProfile;

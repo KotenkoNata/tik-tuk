@@ -26,7 +26,7 @@ const HomeView = () => {
         }
         setData(() => ({
           error: "",
-          videos: response.data,
+          videos: response.data.data.list,
           loading: false,
         }));
       } catch (error) {
@@ -53,7 +53,7 @@ const HomeView = () => {
     <div>
       <VideoList>
         {data.videos.map(video => (
-          <VideoListItem key={video.id} name={video.authorMeta.name} video={video} />
+          <VideoListItem key={video.aweme_id} name={video.author.unique_id} video={video} />
         ))}
       </VideoList>
     </div>

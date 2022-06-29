@@ -1,23 +1,25 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import style from "./VideoListItemAvatar.module.css";
-import VideoHashTag, { HashTagType } from "../VideoHashTag/VideoHashTag";
+import VideoHashTag from "../VideoHashTag/VideoHashTag";
 
 const VideoListItemAvatar = ({ video, name }) => {
   const {
-    text: videoText,
-    hashtags,
-    authorMeta: { avatar, nickName },
-    videoUrl,
+    author: { nickname, avatar_thumb },
+    text_extra,
+    desc,
+    video: { play_addr },
   } = video;
 
-  const hashtagsElements = hashtags.length > 0 && (
+  const videoUrl = play_addr.url_list[1];
+
+  const hashtagsElements = text_extra.length > 0 && (
     <p>
       <strong>{"Hashtags: "}</strong>
-      {hashtags.map(hashtag => (
-        <VideoHashTag key={Math.random()} name={hashtag.name} />
-      ))}
+      {text_extra.map(hashtag => {
+        const { hashtag_name } = hashtag;
+        return <VideoHashTag key={Math.random()} name={hashtag_name} />;
+      })}
     </p>
   );
 
@@ -25,15 +27,15 @@ const VideoListItemAvatar = ({ video, name }) => {
     <div className={style.avatarContainer}>
       <div className={style.imageContainer}>
         <Link className={style.link} to={{ pathname: `/user/${name}` }}>
-          <img alt={nickName} className={style.avatar} src={avatar} />
+          <img alt={nickname} className={style.avatar} src={avatar_thumb.url_list[1]} />
         </Link>
       </div>
       <div className={style.textDetailContainer}>
         <Link className={style.link} to={{ pathname: `/user/${name}` }}>
-          <h1 className={style.nickname}>{nickName}</h1>
+          <h1 className={style.nickname}>{nickname}</h1>
         </Link>
         <div className={style.userDetails}>
-          {videoText.length > 0 && <p>{videoText}</p>}
+          {desc.length > 0 && <p>{desc}</p>}
           {hashtagsElements}
         </div>
         <video className={style.video} controls width="400">
@@ -43,23 +45,6 @@ const VideoListItemAvatar = ({ video, name }) => {
       </div>
     </div>
   );
-};
-
-const AuthorMetaType = PropTypes.shape({
-  avatar: PropTypes.string.isRequired,
-  nickName: PropTypes.string.isRequired,
-});
-
-const VideoType = PropTypes.shape({
-  authorMeta: AuthorMetaType,
-  hashtags: PropTypes.arrayOf(HashTagType),
-  text: PropTypes.string,
-  videoUrl: PropTypes.string.isRequired,
-});
-
-VideoListItemAvatar.propTypes = {
-  name: PropTypes.string.isRequired,
-  video: VideoType.isRequired,
 };
 
 export default VideoListItemAvatar;

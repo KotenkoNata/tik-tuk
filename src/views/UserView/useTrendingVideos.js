@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Logger from "js-logger";
-import { fetchTrendingVideo } from "../../services/videoApi";
+import { getUserFeeds } from "../../services/videoApi";
 
-const useTrendingVideos = () => {
+const useTrendingVideos = name => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loadingError, setLoadingError] = useState("");
@@ -10,8 +10,8 @@ const useTrendingVideos = () => {
   useEffect(() => {
     async function innerFunction() {
       try {
-        const response = await fetchTrendingVideo();
-        setData(response.data);
+        const response = await getUserFeeds(name);
+        setData(response.data.data.aweme_list);
       } catch (error) {
         setLoadingError(error.message);
       } finally {
@@ -20,7 +20,7 @@ const useTrendingVideos = () => {
     }
 
     Logger.trace(innerFunction());
-  }, []);
+  }, [name]);
 
   return [data, loading, loadingError];
 };

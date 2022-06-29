@@ -47,9 +47,13 @@ const videoApi = axios.create({
 });
 
 export function fetchTrendingVideo() {
-  return videoApi.get("/trending/feed");
+  return videoApi.get("/trending");
 }
 
 export function getUserDetails(name) {
-  return videoApi.get(`/user/info/${name}`);
+  return videoApi.get(`/user/${name}?=`);
+}
+
+export function getUserFeeds(name) {
+  return videoApi.get(`/user/${name}/feed`);
 }

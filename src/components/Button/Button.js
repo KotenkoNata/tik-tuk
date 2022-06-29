@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import style from "./Button.module.css";
 
 const ButtonUser = ({ children }) => {
@@ -8,10 +7,6 @@ const ButtonUser = ({ children }) => {
       {children}
     </button>
   );
-};
-
-ButtonUser.propTypes = {
-  children: PropTypes.string.isRequired,
 };
 
 export default ButtonUser;

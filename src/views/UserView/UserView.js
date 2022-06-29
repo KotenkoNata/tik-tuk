@@ -11,21 +11,20 @@ import useTrendingVideos from "./useTrendingVideos";
 const UserView = () => {
   const { name } = useParams();
   const [userDetails, userDetailsLoading] = useUserDetails(name);
-  const [trendingVideos, trendingVideosLoading] = useTrendingVideos();
-
-  if (userDetailsLoading && trendingVideosLoading) {
+  const [userVideos, userVideosLoading] = useTrendingVideos(name);
+  if (userDetailsLoading && userVideosLoading) {
     return <Loading />;
   }
 
   return (
     <>
       {userDetailsLoading ? <Loading /> : <UserProfile name={name} userDetails={userDetails} />}
-      {trendingVideosLoading ? (
+      {userVideosLoading ? (
         <Loading />
       ) : (
         <UserVideoList>
-          {trendingVideos.map(video => (
-            <UserVideoItem key={video.id} video={video} />
+          {userVideos.map(video => (
+            <UserVideoItem key={video.aweme_id} video={video} />
           ))}
         </UserVideoList>
       )}

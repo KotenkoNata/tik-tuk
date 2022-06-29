@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import style from "./UserProfile.module.css";
 import UserProfileStatisticItem from "./UserProfileStatisticItem";
 

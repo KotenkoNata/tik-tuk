@@ -28,6 +28,11 @@
   text-decoration: none;
 }
 
+.link:hover {
+  cursor: pointer;
+  background: green;
+}
+
 .nickname {
   font-size: 20px;
   font-weight: bold;

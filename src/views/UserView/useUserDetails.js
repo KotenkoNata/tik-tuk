@@ -11,7 +11,7 @@ const useUserDetails = name => {
     async function innerFunction() {
       try {
         const response = await getUserDetails(name);
-        setUserDetails(() => response.data);
+        setUserDetails(() => response.data.data);
       } catch (error) {
         setLoadingError(error.message);
       } finally {
