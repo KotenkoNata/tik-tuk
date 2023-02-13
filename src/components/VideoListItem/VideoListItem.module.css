@@ -1,3 +1,7 @@
+.videoItem:last-of-type > .item {
+  border-bottom: none;
+}
+
 .item {
   position: relative;
   width: 700px;

@@ -1,11 +1,11 @@
 .additionalDetails {
   position: absolute;
-  bottom: 0;
-  right: 90px;
+  bottom: 5px;
+  right: 80px;
 }
 
 .detailsItem {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-size: 12px;
 }
 
@@ -17,10 +17,15 @@
   align-content: center;
 }
 
+.iconBorder > span {
+  font-weight: bold;
+}
+
 .iconLink {
   display: block;
   padding: 10px;
   border-radius: 50%;
+  transition: all 0.3s ease-in-out;
 }
 
 .icon {
@@ -30,6 +35,5 @@
 }
 
 .iconLink:hover {
-  background-color: #9f9f9f;
   cursor: pointer;
 }

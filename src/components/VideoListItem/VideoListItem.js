@@ -5,7 +5,7 @@ import style from "./VideoListItem.module.css";
 
 const VideoListItem = ({ video, name }) => {
   return (
-    <li>
+    <li className={style.videoItem}>
       <div className={style.item}>
         <VideoListItemAvatar name={name} video={video} />
         <VideoListItemDetails video={video} />
