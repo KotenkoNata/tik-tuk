@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import style from "./VideoListItemAvatar.module.css";
 import VideoHashTag from "../VideoHashTag/VideoHashTag";
 
@@ -26,14 +26,14 @@ const VideoListItemAvatar = ({ video, name }) => {
   return (
     <div className={style.avatarContainer}>
       <div className={style.imageContainer}>
-        <Link className={style.link} to={{ pathname: `/user/${name}` }}>
+        <NavLink className={style.link} to={{ pathname: `/user/${name}` }}>
           <img alt={nickname} className={style.avatar} src={avatar_thumb.url_list[1]} />
-        </Link>
+        </NavLink>
       </div>
       <div className={style.textDetailContainer}>
-        <Link className={style.link} to={{ pathname: `/user/${name}` }}>
+        <NavLink className={style.link} to={{ pathname: `/user/${name}` }}>
           <h1 className={style.nickname}>{nickname}</h1>
-        </Link>
+        </NavLink>
         <div className={style.userDetails}>
           {desc.length > 0 && <p>{desc}</p>}
           {hashtagsElements}
